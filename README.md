@@ -24,5 +24,5 @@ classDiagram
         boolean finished
     }
 
-    User "1" --> "0..*" Order
+    Client "1" --> "0..*" Order
 ```
