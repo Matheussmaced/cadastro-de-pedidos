@@ -4,11 +4,11 @@
 
 ```mermaid
 classDiagram
-    class User {
+    class Client {
         int id
         String name
-        String creationTimestamp
-        String updateTimestamp
+        Date creationTimestamp
+        Date updateTimestamp
     }
 
     class Order {
@@ -19,8 +19,8 @@ classDiagram
         String kindOfFabric
         String typeOfCollar
         String comments
-        String creationTimestamp
-        String deliveryDate
+        Date creationTimestamp
+        Date deliveryDate
         boolean finished
     }
 
