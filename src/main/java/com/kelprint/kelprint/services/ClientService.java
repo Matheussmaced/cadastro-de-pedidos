@@ -2,9 +2,12 @@ package com.kelprint.kelprint.services;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.kelprint.kelprint.DTO.UpdateClientDTO;
 import com.kelprint.kelprint.entity.Client;
 
+@Service
 public interface ClientService {
   Client findById(String id);
 
