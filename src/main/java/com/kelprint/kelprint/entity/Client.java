@@ -21,6 +21,9 @@ public class Client {
   @Column(name = "name")
   String name;
 
+  @Column(name = "number")
+  String number;
+
   @CreationTimestamp
   private Instant creationTimestamp;
 
@@ -34,9 +37,11 @@ public class Client {
   public Client() {
   }
 
-  public Client(UUID clientId, String name, Instant creationTimestamp, Instant updateTimestamp, List<Order> order) {
+  public Client(UUID clientId, String name, String number, Instant creationTimestamp, Instant updateTimestamp,
+      List<Order> order) {
     this.clientId = clientId;
     this.name = name;
+    this.number = number;
     this.creationTimestamp = creationTimestamp;
     this.updateTimestamp = updateTimestamp;
     this.order = order;
@@ -80,6 +85,14 @@ public class Client {
 
   public void setOrder(List<Order> order) {
     this.order = order;
+  }
+
+  public String getNumber() {
+    return number;
+  }
+
+  public void setNumber(String number) {
+    this.number = number;
   }
 
 }
