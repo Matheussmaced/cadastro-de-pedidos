@@ -7,6 +7,7 @@ classDiagram
     class Client {
         int id
         String name
+        String number
         Date creationTimestamp
         Date updateTimestamp
     }
