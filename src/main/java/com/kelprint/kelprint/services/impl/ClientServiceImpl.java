@@ -60,7 +60,20 @@ public class ClientServiceImpl implements ClientService {
 
   @Override
   public Client updateClient(String id, UpdateClientDTO updateClientDTO) {
-    return null;
+    var clientId = UUID.fromString(id);
+    Client clientUpdate;
+
+    clientUpdate = clientRepository.findById(clientId)
+        .orElseThrow(() -> new EntityNotFoundException("Client not found"));
+
+    if (updateClientDTO.name() != null) {
+      clientUpdate.setName(updateClientDTO.name());
+    }
+    if (updateClientDTO.number() != null) {
+      clientUpdate.setNumber(updateClientDTO.number());
+    }
+
+    return clientRepository.save(clientUpdate);
   }
 
 }
