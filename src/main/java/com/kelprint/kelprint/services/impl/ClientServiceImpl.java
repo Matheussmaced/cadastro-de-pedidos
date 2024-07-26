@@ -1,13 +1,18 @@
 package com.kelprint.kelprint.services.impl;
 
 import java.util.List;
+import java.util.UUID;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.kelprint.kelprint.DTO.CreateClientDTO;
 import com.kelprint.kelprint.DTO.UpdateClientDTO;
 import com.kelprint.kelprint.entity.Client;
 import com.kelprint.kelprint.repository.ClientRepository;
 import com.kelprint.kelprint.services.ClientService;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class ClientServiceImpl implements ClientService {
@@ -33,7 +38,23 @@ public class ClientServiceImpl implements ClientService {
   }
 
   @Override
+  public Client create(CreateClientDTO createClientDTO) {
+    Client client = new Client();
+    client.setName(createClientDTO.name());
+    client.setNumber(createClientDTO.number());
+
+    return clientRepository.save(client);
+  }
+
+  @Override
   public void delete(String id) {
+    var clientId = UUID.fromString(id);
+    Client clientToDelete;
+
+    clientToDelete = clientRepository.findById(clientId)
+        .orElseThrow(() -> new EntityNotFoundException("Client not found"));
+
+    clientRepository.delete(clientToDelete);
 
   }
 
@@ -41,4 +62,5 @@ public class ClientServiceImpl implements ClientService {
   public Client updateClient(String id, UpdateClientDTO updateClientDTO) {
     return null;
   }
+
 }
