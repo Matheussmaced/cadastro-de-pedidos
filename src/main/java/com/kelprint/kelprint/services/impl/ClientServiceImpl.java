@@ -34,7 +34,10 @@ public class ClientServiceImpl implements ClientService {
 
   @Override
   public Client findById(String id) {
-    return null;
+    var clientId = UUID.fromString(id);
+
+    return clientRepository.findById(clientId).orElseThrow(() -> new EntityNotFoundException("Clint not found"));
+
   }
 
   @Override

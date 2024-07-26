@@ -36,6 +36,13 @@ public class ClientController {
     return ResponseEntity.ok(clients);
   }
 
+  @GetMapping("/{id}")
+  public ResponseEntity<Client> findById(@PathVariable("id") String id) {
+    var client = clientService.findById(id);
+
+    return ResponseEntity.ok(client);
+  }
+
   @PostMapping
   public ResponseEntity<Client> createClient(@RequestBody CreateClientDTO createClientDTO) {
     var createClient = clientService.create(createClientDTO);
