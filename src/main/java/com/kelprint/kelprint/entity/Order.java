@@ -19,7 +19,7 @@ public class Order {
   private UUID id;
 
   @ManyToOne
-  @JoinColumn(name = "client_Id")
+  @JoinColumn(name = "client_id")
   @JsonBackReference
   private Client client;
 

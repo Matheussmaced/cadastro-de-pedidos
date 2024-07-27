@@ -15,7 +15,6 @@ import jakarta.persistence.*;
 public class Client {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  @Column(name = "client_Id")
   private UUID clientId;
 
   @Column(name = "name")
