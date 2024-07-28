@@ -84,7 +84,12 @@ public class OrderServiceImpl implements OrderService {
 
   @Override
   public void deleteOrder(String id) {
+    var orderId = UUID.fromString(id);
 
+    Order order = orderRepository.findById(orderId)
+        .orElseThrow(() -> new EntityNotFoundException("Order not found"));
+
+    orderRepository.delete(order);
   }
 
 }

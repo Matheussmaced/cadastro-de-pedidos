@@ -4,6 +4,7 @@ import java.net.URI;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -39,6 +40,13 @@ public class OrderController {
   public ResponseEntity<Void> updateOrder(@PathVariable("id") String id,
       @RequestBody UpdateOrderDTO updateOrderDTO) {
     orderService.updateOrder(id, updateOrderDTO);
+
+    return ResponseEntity.noContent().build();
+  }
+
+  @DeleteMapping("/{id}/order")
+  public ResponseEntity<Void> deleteOrder(@PathVariable("id") String id) {
+    orderService.deleteOrder(id);
 
     return ResponseEntity.noContent().build();
   }
