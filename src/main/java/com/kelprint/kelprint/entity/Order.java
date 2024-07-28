@@ -42,7 +42,7 @@ public class Order {
   private String comments;
 
   @Column(name = "delivery_date")
-  private Date deliveryDate;
+  private String deliveryDate;
 
   @Column(name = "finished")
   private boolean finished;
@@ -57,7 +57,7 @@ public class Order {
   }
 
   public Order(UUID id, Client client, String orderDescription, Integer amount, String sizes, String kindOfFabric,
-      String typeOfCollar, String comments, Date deliveryDate, boolean finished, Instant creationTimestamp,
+      String typeOfCollar, String comments, String deliveryDate, boolean finished, Instant creationTimestamp,
       Instant updateTimestamp) {
     this.id = id;
     this.client = client;
@@ -137,11 +137,11 @@ public class Order {
     this.comments = comments;
   }
 
-  public Date getDeliveryDate() {
+  public String getDeliveryDate() {
     return deliveryDate;
   }
 
-  public void setDeliveryDate(Date deliveryDate) {
+  public void setDeliveryDate(String deliveryDate) {
     this.deliveryDate = deliveryDate;
   }
 

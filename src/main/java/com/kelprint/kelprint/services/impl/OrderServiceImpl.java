@@ -71,6 +71,12 @@ public class OrderServiceImpl implements OrderService {
     if (updateOrderDTO.finished() == false || updateOrderDTO.finished() == true) {
       order.setFinished(updateOrderDTO.finished());
     }
+    if (updateOrderDTO.typeOfCollar() != null) {
+      order.setTypeOfCollar(updateOrderDTO.typeOfCollar());
+    }
+    if (updateOrderDTO.deliveryDate() != null) {
+      order.setDeliveryDate(updateOrderDTO.deliveryDate());
+    }
 
     return orderRepository.save(order);
 
