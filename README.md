@@ -21,7 +21,7 @@ classDiagram
         String typeOfCollar
         String comments
         Date creationTimestamp
-        Date deliveryDate
+        String deliveryDate
         boolean finished
     }
 
