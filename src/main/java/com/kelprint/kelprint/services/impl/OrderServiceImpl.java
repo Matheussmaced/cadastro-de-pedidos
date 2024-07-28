@@ -2,6 +2,7 @@ package com.kelprint.kelprint.services.impl;
 
 import java.util.UUID;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.kelprint.kelprint.DTO.CreateOrderDTO;
@@ -47,7 +48,32 @@ public class OrderServiceImpl implements OrderService {
 
   @Override
   public Order updateOrder(String id, UpdateOrderDTO updateOrderDTO) {
-    return null;
+    var orderId = UUID.fromString(id);
+
+    Order order = orderRepository.findById(orderId)
+        .orElseThrow(() -> new EntityNotFoundException("Order not found"));
+
+    if (updateOrderDTO.orderDescription() != null) {
+      order.setOrderDescription(updateOrderDTO.orderDescription());
+    }
+    if (updateOrderDTO.amount() != null) {
+      order.setAmount(updateOrderDTO.amount());
+    }
+    if (updateOrderDTO.sizes() != null) {
+      order.setSizes(updateOrderDTO.sizes());
+    }
+    if (updateOrderDTO.kindOfFabric() != null) {
+      order.setKindOfFabric(updateOrderDTO.kindOfFabric());
+    }
+    if (updateOrderDTO.comments() != null) {
+      order.setComments(updateOrderDTO.comments());
+    }
+    if (updateOrderDTO.finished() == false || updateOrderDTO.finished() == true) {
+      order.setFinished(updateOrderDTO.finished());
+    }
+
+    return orderRepository.save(order);
+
   }
 
   @Override

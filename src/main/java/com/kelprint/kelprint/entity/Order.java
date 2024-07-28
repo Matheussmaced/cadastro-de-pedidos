@@ -27,7 +27,7 @@ public class Order {
   private String orderDescription;
 
   @Column(name = "amount")
-  private int amount;
+  private Integer amount;
 
   @Column(name = "sizes")
   private String sizes;
@@ -56,7 +56,7 @@ public class Order {
   public Order() {
   }
 
-  public Order(UUID id, Client client, String orderDescription, int amount, String sizes, String kindOfFabric,
+  public Order(UUID id, Client client, String orderDescription, Integer amount, String sizes, String kindOfFabric,
       String typeOfCollar, String comments, Date deliveryDate, boolean finished, Instant creationTimestamp,
       Instant updateTimestamp) {
     this.id = id;
@@ -97,11 +97,11 @@ public class Order {
     this.orderDescription = orderDescription;
   }
 
-  public int getAmount() {
+  public Integer getAmount() {
     return amount;
   }
 
-  public void setAmount(int amount) {
+  public void setAmount(Integer amount) {
     this.amount = amount;
   }
 
