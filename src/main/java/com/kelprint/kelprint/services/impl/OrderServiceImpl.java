@@ -40,6 +40,8 @@ public class OrderServiceImpl implements OrderService {
     order.setKindOfFabric(createOrderDTO.kindOfFabric());
     order.setComments(createOrderDTO.comments());
     order.setFinished(createOrderDTO.finished());
+    order.setDeliveryDate(createOrderDTO.deliveryDate());
+    order.setTypeOfCollar(createOrderDTO.typeOfCollar());
     order.setClient(client);
 
     return orderRepository.save(order);
