@@ -5,6 +5,7 @@ import java.net.URI;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -24,6 +25,13 @@ public class OrderController {
 
   public OrderController(OrderService orderService) {
     this.orderService = orderService;
+  }
+
+  @GetMapping("/{id}/order")
+  public ResponseEntity<Order> getById(@PathVariable("id") String id) {
+    var getId = orderService.getOrder(id);
+
+    return ResponseEntity.ok(getId);
   }
 
   @PostMapping("/{id}/order")

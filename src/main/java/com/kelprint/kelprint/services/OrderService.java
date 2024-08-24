@@ -8,6 +8,8 @@ import com.kelprint.kelprint.entity.Order;
 
 @Service
 public interface OrderService {
+  Order getOrder(String id);
+
   Order createOrder(String id, CreateOrderDTO createOrderDTO);
 
   Order updateOrder(String id, UpdateOrderDTO updateOrderDTO);

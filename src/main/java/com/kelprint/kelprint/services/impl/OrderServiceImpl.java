@@ -26,6 +26,13 @@ public class OrderServiceImpl implements OrderService {
   }
 
   @Override
+  public Order getOrder(String id) {
+    var orderId = UUID.fromString(id);
+
+    return orderRepository.findById(orderId).orElseThrow(() -> new EntityNotFoundException("Order not found"));
+  }
+
+  @Override
   public Order createOrder(String id, CreateOrderDTO createOrderDTO) {
     var clientId = UUID.fromString(id);
 
