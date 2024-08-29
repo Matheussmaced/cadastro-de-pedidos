@@ -26,6 +26,12 @@ public class Order {
   @Column(name = "order_description")
   private String orderDescription;
 
+  @Column(name = "total_value")
+  private String totalValue;
+
+  @Column(name = "value_per_unit")
+  private String valuePerUnit;
+
   @Column(name = "amount")
   private Integer amount;
 
@@ -56,12 +62,14 @@ public class Order {
   public Order() {
   }
 
-  public Order(UUID id, Client client, String orderDescription, Integer amount, String sizes, String kindOfFabric,
-      String typeOfCollar, String comments, String deliveryDate, boolean finished, Instant creationTimestamp,
-      Instant updateTimestamp) {
+  public Order(UUID id, Client client, String orderDescription, String totalValue, String valuePerUnit, Integer amount,
+      String sizes, String kindOfFabric, String typeOfCollar, String comments, String deliveryDate, boolean finished,
+      Instant creationTimestamp, Instant updateTimestamp) {
     this.id = id;
     this.client = client;
     this.orderDescription = orderDescription;
+    this.totalValue = totalValue;
+    this.valuePerUnit = valuePerUnit;
     this.amount = amount;
     this.sizes = sizes;
     this.kindOfFabric = kindOfFabric;
@@ -167,6 +175,22 @@ public class Order {
 
   public void setUpdateTimestamp(Instant updateTimestamp) {
     this.updateTimestamp = updateTimestamp;
+  }
+
+  public String getTotalValue() {
+    return totalValue;
+  }
+
+  public void setTotalValue(String totalValue) {
+    this.totalValue = totalValue;
+  }
+
+  public String getValuePerUnit() {
+    return valuePerUnit;
+  }
+
+  public void setValuePerUnit(String valuePerUnit) {
+    this.valuePerUnit = valuePerUnit;
   }
 
 }
