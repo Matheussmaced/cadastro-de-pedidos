@@ -51,6 +51,8 @@ public class OrderServiceImpl implements OrderService {
     order.setTypeOfCollar(createOrderDTO.typeOfCollar());
     order.setTotalValue(createOrderDTO.totalValue());
     order.setValuePerUnit(createOrderDTO.valuePerUnit());
+    order.setInputValue(createOrderDTO.inputValue());
+    order.setPaymentType(createOrderDTO.paymentType());
     order.setClient(client);
 
     return orderRepository.save(order);
@@ -93,6 +95,12 @@ public class OrderServiceImpl implements OrderService {
     }
     if (updateOrderDTO.valuePerUnit() != null) {
       order.setValuePerUnit(updateOrderDTO.valuePerUnit());
+    }
+    if (updateOrderDTO.inputValue() != null) {
+      order.setInputValue(updateOrderDTO.inputValue());
+    }
+    if (updateOrderDTO.paymentType() != null) {
+      order.setPaymentType(updateOrderDTO.paymentType());
     }
 
     return orderRepository.save(order);

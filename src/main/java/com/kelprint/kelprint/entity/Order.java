@@ -32,6 +32,12 @@ public class Order {
   @Column(name = "value_per_unit")
   private String valuePerUnit;
 
+  @Column(name = "input_value")
+  private String inputValue;
+
+  @Column(name = "payment_type")
+  private String paymentType;
+
   @Column(name = "amount")
   private Integer amount;
 
@@ -62,14 +68,16 @@ public class Order {
   public Order() {
   }
 
-  public Order(UUID id, Client client, String orderDescription, String totalValue, String valuePerUnit, Integer amount,
-      String sizes, String kindOfFabric, String typeOfCollar, String comments, String deliveryDate, boolean finished,
-      Instant creationTimestamp, Instant updateTimestamp) {
+  public Order(UUID id, Client client, String orderDescription, String totalValue, String valuePerUnit,
+      String inputValue, String paymentType, Integer amount, String sizes, String kindOfFabric, String typeOfCollar,
+      String comments, String deliveryDate, boolean finished, Instant creationTimestamp, Instant updateTimestamp) {
     this.id = id;
     this.client = client;
     this.orderDescription = orderDescription;
     this.totalValue = totalValue;
     this.valuePerUnit = valuePerUnit;
+    this.inputValue = inputValue;
+    this.paymentType = paymentType;
     this.amount = amount;
     this.sizes = sizes;
     this.kindOfFabric = kindOfFabric;
@@ -191,6 +199,22 @@ public class Order {
 
   public void setValuePerUnit(String valuePerUnit) {
     this.valuePerUnit = valuePerUnit;
+  }
+
+  public String getInputValue() {
+    return inputValue;
+  }
+
+  public void setInputValue(String inputValue) {
+    this.inputValue = inputValue;
+  }
+
+  public String getPaymentType() {
+    return paymentType;
+  }
+
+  public void setPaymentType(String paymentType) {
+    this.paymentType = paymentType;
   }
 
 }
