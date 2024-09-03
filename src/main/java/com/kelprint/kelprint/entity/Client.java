@@ -23,6 +23,9 @@ public class Client {
   @Column(name = "number")
   String number;
 
+  @Column(name = "danger")
+  private Boolean danger;
+
   @CreationTimestamp
   private Instant creationTimestamp;
 
@@ -36,11 +39,12 @@ public class Client {
   public Client() {
   }
 
-  public Client(UUID clientId, String name, String number, Instant creationTimestamp, Instant updateTimestamp,
-      List<Order> order) {
+  public Client(UUID clientId, String name, String number, Boolean danger, Instant creationTimestamp,
+      Instant updateTimestamp, List<Order> order) {
     this.clientId = clientId;
     this.name = name;
     this.number = number;
+    this.danger = danger;
     this.creationTimestamp = creationTimestamp;
     this.updateTimestamp = updateTimestamp;
     this.order = order;
@@ -92,6 +96,14 @@ public class Client {
 
   public void setNumber(String number) {
     this.number = number;
+  }
+
+  public Boolean getDanger() {
+    return danger;
+  }
+
+  public void setDanger(Boolean danger) {
+    this.danger = danger;
   }
 
 }

@@ -45,6 +45,7 @@ public class ClientServiceImpl implements ClientService {
     Client client = new Client();
     client.setName(createClientDTO.name());
     client.setNumber(createClientDTO.number());
+    client.setDanger(createClientDTO.danger());
 
     return clientRepository.save(client);
   }
@@ -74,6 +75,9 @@ public class ClientServiceImpl implements ClientService {
     }
     if (updateClientDTO.number() != null) {
       clientUpdate.setNumber(updateClientDTO.number());
+    }
+    if (updateClientDTO.danger() == false || updateClientDTO.danger() == true) {
+      clientUpdate.setDanger(updateClientDTO.danger());
     }
 
     return clientRepository.save(clientUpdate);
