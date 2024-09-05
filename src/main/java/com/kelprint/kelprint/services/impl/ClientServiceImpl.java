@@ -24,7 +24,7 @@ public class ClientServiceImpl implements ClientService {
 
   @Override
   public List<Client> findAll() {
-    List<Client> clients = clientRepository.findAll();
+    List<Client> clients = clientRepository.findAllByOrderByCreationTimestampAsc();
     if (clients != null) {
       return clients;
     } else {
@@ -45,7 +45,12 @@ public class ClientServiceImpl implements ClientService {
     Client client = new Client();
     client.setName(createClientDTO.name());
     client.setNumber(createClientDTO.number());
-    client.setDanger(createClientDTO.danger());
+
+    if (createClientDTO.danger() != null) {
+      client.setDanger(createClientDTO.danger());
+    } else {
+      client.setDanger(false);
+    }
 
     return clientRepository.save(client);
   }
@@ -76,7 +81,7 @@ public class ClientServiceImpl implements ClientService {
     if (updateClientDTO.number() != null) {
       clientUpdate.setNumber(updateClientDTO.number());
     }
-    if (updateClientDTO.danger() == false || updateClientDTO.danger() == true) {
+    if (updateClientDTO.danger() != null) {
       clientUpdate.setDanger(updateClientDTO.danger());
     }
 

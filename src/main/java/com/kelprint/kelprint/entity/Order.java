@@ -50,7 +50,7 @@ public class Order {
   @Column(name = "type_of_collar")
   private String typeOfCollar;
 
-  @Column(name = "comments")
+  @Column(name = "comments", length = 10000)
   private String comments;
 
   @Column(name = "delivery_date")

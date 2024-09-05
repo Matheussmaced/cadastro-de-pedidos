@@ -9,5 +9,4 @@ public class KelprintApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(KelprintApplication.class, args);
 	}
-
 }
