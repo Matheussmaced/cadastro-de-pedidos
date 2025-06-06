@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.kelprint.kelprint.DTO.CreateOrderDTO;
@@ -18,7 +19,7 @@ import com.kelprint.kelprint.DTO.UpdateOrderDTO;
 import com.kelprint.kelprint.entity.Order;
 import com.kelprint.kelprint.services.OrderService;
 
-@Controller
+@RestController
 @RequestMapping("/client")
 public class OrderController {
   private final OrderService orderService;

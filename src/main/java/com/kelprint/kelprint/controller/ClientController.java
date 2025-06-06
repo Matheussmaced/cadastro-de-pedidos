@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.kelprint.kelprint.DTO.CreateClientDTO;
@@ -20,7 +21,7 @@ import com.kelprint.kelprint.services.ClientService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/client")
 public class ClientController {
   private final ClientService clientService;
